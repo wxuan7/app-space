@@ -7,7 +7,7 @@ let path = require('path');
 const config = {
   // baseUrl: process.env.APP_SPA_DOMAIN || "http://127.0.0.1:80", //baseUrl应用请求的url地址,比如https://appspace
   // port: process.env.APP_SPA_PORT || '80', //server运行的端口
-  baseUrl: process.env.APP_SPA_DOMAIN || "http://127.0.0.1:8081", //baseUrl应用请求的url地址,比如https://appspace
+  baseUrl: process.env.APP_SPA_DOMAIN || "https://appstore.corp.powermobile.app:30244", //baseUrl应用请求的url地址,比如https://appspace
   host: process.env.APP_SPA_HOST || "0.0.0.0", //host railway
   port: process.env.APP_SPA_PORT || '8081', //server运行的端口
 
@@ -20,7 +20,7 @@ const config = {
   dbUser: process.env.APP_SPA_DBUSER || 'mongo', //数据库用户 (没有开启mongodb用户认证的可以不填写)
   dbPass: process.env.APP_SPA_DBPWD || 'bWHy6ZBakeOx0oMV3fG', //数据库密码 (没有开启mongodb用户认证的可以不填写)
   dbName: process.env.APP_SPA_DB_NAME || 'app_space',//'app_space', //数据库名称
-  dbHost: process.env.APP_SPA_DB_HOST ||'containers-us-west-181.railway.app',// 'mongo',// '127.0.0.1', //数据库地址
+  dbHost: process.env.APP_SPA_DB_HOST || 'containers-us-west-181.railway.app',// 'mongo',// '127.0.0.1', //数据库地址
 
   dbPort: process.env.APP_SPA_DB_PORT || '6106', //数据库端口
 
@@ -46,7 +46,7 @@ const config = {
   local: {
     // downloadUrl
     // downloadUrl: process.env.APP_SPA_DOMAIN || "http://10.151.100.79:80",
-    downloadUrl: process.env.APP_SPA_DOMAIN || "http://192.168.1.10:8085",
+    downloadUrl: process.env.APP_SPA_DOMAIN || "https://appstore.corp.powermobile.app:30244",
   },
   // Config for qiniu (http://www.qiniu.com/) cloud storage when storageType value is "qiniu".
   qiniu: {
@@ -71,24 +71,24 @@ const config = {
     sessionToken: process.env.AWS_SESSION_TOKEN || '', //(optional)
     bucketName: process.env.AWS_BUCKET_NAME || 't',
     region: process.env.AWS_REGION || '',
-    downloadUrl: process.env.AWS_DOWNLOAD_URL||'', // binary files download host address.
+    downloadUrl: process.env.AWS_DOWNLOAD_URL || '', // binary files download host address.
   },
   // Config for tencentyun COS (https://cloud.tencent.com/product/cos) when storageType value is "oss".
   tencentcloud: {
     accessKeyId: process.env.TENCENT_CLOUD_ACCESS_KEY_ID,
     secretAccessKey: process.env.TENCENT_CLOUD_SECRET_ACCESS_KEY,
-    bucketName:process.env.TENCENT_CLOUD_BUCKET_NAME,
+    bucketName: process.env.TENCENT_CLOUD_BUCKET_NAME,
     region: process.env.TENCENT_CLOUD_REGION,
     downloadUrl: process.env.TENCENT_CLOUD_DOWNLOAD_URL, // binary files download host address.
   },
   // Config for Aliyun OSS (https://www.aliyun.com/product/oss) when storageType value is "oss".
   oss: {
-    accessKeyId:  process.env.OSS_ACCESS_KEY_ID,
-    secretAccessKey:  process.env.OSS_SECRET_ACCESS_KEY,
-    endpoint:  process.env.OSS_ENDPOINT,
-    bucketName:  process.env.OSS_BUCKET_NAME,
-    prefix:  process.env.OSS_PREFIX, // Key prefix in object key
-    downloadUrl:  process.env.OSS_DOWNLOAD_URL, // binary files download host address.
+    accessKeyId: process.env.OSS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.OSS_SECRET_ACCESS_KEY,
+    endpoint: process.env.OSS_ENDPOINT,
+    bucketName: process.env.OSS_BUCKET_NAME,
+    prefix: process.env.OSS_PREFIX, // Key prefix in object key
+    downloadUrl: process.env.OSS_DOWNLOAD_URL, // binary files download host address.
   },
 
   jwt: {
@@ -131,11 +131,11 @@ const config = {
     }
   },
   log4js: {
-    appenders: {console: {type: 'console'}},
+    appenders: { console: { type: 'console' } },
     categories: {
-      "default": {appenders: ['console'], level: 'all'},
-      "startup": {appenders: ['console'], level: 'all'},
-      "http": {appenders: ['console'], level: 'all'}
+      "default": { appenders: ['console'], level: 'all' },
+      "startup": { appenders: ['console'], level: 'all' },
+      "http": { appenders: ['console'], level: 'all' }
     }
   }
 };

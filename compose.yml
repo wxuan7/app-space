@@ -4,20 +4,22 @@ services:
     image: mongo:6.0
     restart: unless-stopped
     ports:
-      - 127.0.0.1:27017:27017
+      - "127.0.0.1:27017:27017"
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=root
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
 
   appspace:
     container_name: appspace
-    image: appspace
+    build:
+      context: .
+    image: appspace:latest
     restart: always
     ports:
-      - '8081:8081'
+      - "23334:8081"
     environment:
-      APP_SPA_DOMAIN: http://example.com
-      APP_SPA_SECRET: abcdefg 
+      APP_SPA_DOMAIN: https://appstore.corp.powermobile.app:30244
+      APP_SPA_SECRET: abcdefg
       APP_SPA_DBUSER: root
       APP_SPA_DBPWD: root
       APP_SPA_DB_NAME: app_space
@@ -25,7 +27,5 @@ services:
       APP_SPA_DB_PORT: 27017
       APP_SPA_ADMIN_ACCOUNT: admin
       APP_SPA_ADMIN_PASSWORD: "app@space"
-
-
-# volumes:
-#   dbdata:
+    depends_on:
+      - appspace-mongo
